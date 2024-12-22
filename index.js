@@ -47,14 +47,6 @@ app.post("/", upload.any(), async (req, res) => {
                 size,
             })),
         };
-
-        console.log("Response: ", {
-            data: response,
-            attachments: attachments.map(({ content, ...rest }) => ({
-                ...rest,
-                content: content.toString("base64"), // Send attachment as Base64 for compatibility
-            })),
-        });
         
         // Set up response headers for binary data
         res.status(200)
